@@ -1,0 +1,235 @@
+	/**
+	* Titre: Labo 1 - Tableau.css
+ 	* Date: 7 octobre 2018
+ 	* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
+ 	* Desciption: Ce code permet recréer un tableau Doodle.
+	*/
+	
+	.grid-container 
+	{
+		display: grid;
+		grid-template-columns: 216px repeat(9, 72px);
+		grid-template-rows: 150px 46px 57px repeat(5, 45px);
+		/*background-color: white;*/
+	}
+
+	.grid-container > div 
+	{
+		text-align: center;
+		font-size: 16px;
+		border: 1px solid rgb(212, 218, 222);
+		font-family: "Fira Sans","Trebuchet MS","Helvetica Neue","Arial",sans-serif;
+	}
+
+	/*Cette classe détermine la couleur de fond des cases qui ne possèdent pas une coche verte.*/
+	.background-color-pink
+	{
+		background-color: #FCEDE9;
+	}
+
+	.background-color-blue
+	{
+		background-color: #91C8E9;
+	}
+	
+	.pencil a
+	{
+		visibility: hidden;
+	}
+
+	.pencil:hover a
+	{	
+		visibility: visible;
+		color: #91C8E9;
+		background-color: rgb(245, 253, 250);
+		align-items: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 17px;
+		padding-right: 17px;
+	}
+
+    /*Cette classe détermine l'image de fond des cases qui possèdent une coche verte.*/
+    .background-green-check
+    {
+    	background-image: url("Images/tick1.png");
+    	background-size: 100% 100%;
+    }
+
+    /*Cette classe détermine le style du texte dans la deuxième case de la première colonne.*/
+    .style-number-participants
+    {
+	    display: flex;
+        align-items: center;
+        padding-left: 16px;
+        color: #8696a2;   
+	}
+    
+    /*Cette classe détermine le style du texte et de l'image (coche bleue) des cases de la deuxième ligne.*/
+    .image-align-check
+    {
+	    display: flex;
+        align-items: center;
+        padding-left: 19px;
+        color: rgba(55, 152, 212, 0.8);
+	}
+
+	/*Cette classe détermine le style de la case contenant la zone de saisie.*/
+	.image-align-input-box
+	{
+		display: flex;
+        align-items: center;
+        padding-left: 16px; 
+		background-color:#91C8E9;
+	}
+
+	/*Cette classe détermine la grandeur de l'image de la coche bleue de la deuxième ligne.*/
+	.blue-check-size
+	{
+		width: 50%;
+        height: 50%;
+	}
+
+	/*Cette classe détermine le style des cases contenant les noms des participants.*/
+    .registered-names-grid
+    {
+    	display: grid;
+        align-items: center;
+    	border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
+    	border-top: 1px solid rgba(0, 0, 0, 0) !important;
+    	grid-template-columns: 64px auto 50px;
+    }
+
+    /*Cette classe détermine le style de la dernière case contenant les noms des participants.*/
+    .registered-names-erase-border-top
+    {
+    	display: grid;
+        align-items: center;
+    	border-top: 1px solid rgba(0, 0, 0, 0) !important;
+    	grid-template-columns: 64px auto 50px;
+    }
+
+    .style-registered-names
+    {
+    	text-align: left;
+    }
+
+    /*Cette classe détermine le remplissage en-haut et en-bas du texte des cases de la première ligne (les dates).*/
+    .padding-date
+    {
+    	padding-top: 10px;
+    	padding-bottom: 8px;
+    }
+
+    /*Cette classe détermine le style de la date du mois.*/
+    .date
+    {
+	    font-size: 26px;
+	    font-weight: bold;
+	    padding-left: 8px;
+    }
+
+    /*Cette classe détermine le style du jour de la semaine.*/
+    .day
+    {
+	    color: #5d6e79;
+	    font-style: normal;
+	    letter-spacing: 1px;
+	    font-weight: bold;
+	    padding-left: 8px;
+    } 
+
+    /*Cette classe détermine le style du temps.*/
+    .time
+    {
+    	font-size: 14px;
+    }
+
+    /*Cette classe détermine le style de la zone de saisie.*/
+    input[type=text], select 
+    {
+	    width: 90%;
+	    padding: 10px 10px;
+	    display: inline-block;
+	    border: 1px solid rgba(0, 0, 0, 0);
+	    border-radius: 6px;
+	    box-sizing: border-box;
+	    font-family: "Fira Sans","Trebuchet MS","Helvetica Neue","Arial",sans-serif;
+	    font-size: 16px;
+	}
+
+	.container
+	{
+	    display: block;
+	    position: relative;
+	    padding-top: 16px;
+	    cursor: pointer;
+	    font-size: 22px;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	}
+
+	/* Hide the browser's default checkbox */
+	.container input 
+	{
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+	}
+
+	/* Create a custom checkbox */
+	.checkmark 
+	{
+	    position: absolute;
+	    top: 16px;
+	 	left: 24px;
+	    height: 24px;
+	    width: 24px;
+	    border-radius: 4px;
+	    background-color: white;
+	}
+
+	/* On mouse-over, add a grey background color */
+	.container:hover input ~ .checkmark 
+	{
+	    background-color: white;
+	    border: 1px solid;
+	    border-color: #91C8E9;
+	}
+
+	/* When the checkbox is checked, add a blue background */
+	.container input:checked ~ .checkmark 
+	{
+	    background-color: white;
+	}
+
+	/* Create the checkmark/indicator (hidden when not checked) */
+	.checkmark:after 
+	{
+	    content: "";
+	    position: absolute;
+	    display: none;
+	}
+
+	/* Show the checkmark when checked */
+	.container input:checked ~ .checkmark:after 
+	{
+	    display: block;
+	}
+
+	/* Style the checkmark/indicator */
+	.container .checkmark:after 
+	{
+	    left: 7px;
+	    top: 2px;
+	    width: 6px;
+	    height: 12px;
+	    border: solid #85C42A;
+	    border-radius: 2px;
+	    border-width: 0 5px 5px 0;
+	    -webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}
