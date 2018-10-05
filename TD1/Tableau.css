@@ -2,7 +2,7 @@
 	* Titre: Labo 1 - Tableau.css
  	* Date: 7 octobre 2018
  	* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
- 	* Desciption: Ce code permet recréer un tableau Doodle.
+ 	* Desciption: Ce code permet de recréer un tableau Doodle.
 	*/
 	
 	.grid-container 
@@ -232,4 +232,67 @@
 	    -webkit-transform: rotate(45deg);
 	    -ms-transform: rotate(45deg);
 	    transform: rotate(45deg);
+	}
+
+	/*Les grids qui apparaissent quand on hover sur une case*/
+	.tooltip 
+	{
+		position: relative;
+		display: grid;
+		grid-template-columns: 70px 100px;
+		grid-template-rows: 100px 10px;
+		padding-left: 15px;
+		padding-top: 20px;
+	}
+
+	.tooltip > div 
+	{
+		font-family: "Fira Sans","Trebuchet MS","Helvetica Neue","Arial",sans-serif;
+		font-size: 14px;
+		align-items: center;
+	}
+
+	.time-tooltip
+	{
+		grid-area: 1/2/span 1/span 1;
+		padding-top: 20px;
+		padding-left: 5px;
+		font-size: 14px;
+		color: #5d6e79;
+		letter-spacing: 1px;
+	}
+
+	.disponibility-tooltip
+	{
+		border-top: 1px solid rgb(212, 218, 222);
+		grid-area: 2 / 1 / span 1 / span 2;
+		padding-left: 20px;
+		padding-top: 18px;
+		color: #5d6e79;
+		letter-spacing: 1px;
+		font-size: 14px;
+	}
+
+	.tooltip .tooltiptext 
+	{
+		width: 175px;
+		height:200px;
+		background-color: #FFF;
+		text-align: left;
+		border-radius: 5px;
+		align-items:center;
+		padding: 5px 0;
+		position: absolute;
+		z-index: -100;
+		bottom: 67px;
+		opacity: 0;
+		box-shadow: 1px 1px 5px #888888;
+		/* transition: opacity 0s 0s ease;   */
+	}
+
+	.tooltip:hover .tooltiptext 
+	{
+		opacity: 1;
+		transition: opacity 0s 1s ease;
+		z-index: 100;
 	}
