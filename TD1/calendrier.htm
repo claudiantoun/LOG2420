@@ -7,9 +7,9 @@
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="Tableau.css">
+	<link rel="stylesheet" type="text/css" href="calendrier.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<script src="./Tableau.js"></script>
+	<script src="./calendrier.js"></script>
 	<title>Équipe (-1) --- TD1</title>
 </head>
 	<body onload="genererTableau()">
@@ -19,12 +19,13 @@
 			</strong>
 		</h3>
 		<h3>Équipe (-1) --- TD1</h3>
-		<!--mettre des div for it to look pertyyyy -->
-		<button onclick="genererVueCalendrier()">Calendrier</button><button>Table</button>
+		<button onclick="genererVueCalendrier(listDate)">Calendrier</button><button onclick="genererVueTableau()">Table</button>
 		<span id="spanTable">
 			<div id="table" class="grid-container"></div>
 		</span>
-		<div id="calendrier" class="grid-container"></div>
+		<span id="spanCalendrier">
+		<div id="calendrier" class="calendar-grid-container"></div>
+		</span>
 	</body>
 </html>
  
