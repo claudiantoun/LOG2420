@@ -418,3 +418,58 @@
     {
 	    align-self: start;
 	}
+
+	/* Cette classe positionne et détermine le style de la case à cocher */
+	.checkmark-calendar
+	{
+		position: absolute;
+	    top: 50px;
+	 	left: 35px;
+	    height: 24px;
+	    width: 24px;
+	    border-radius: 4px;
+	    background-color: white;
+	}
+
+	/* Cette classe ajoute un contour bleu à la case à cocher lorsque l'on y fait passer le curseur par dessus */
+	.container:hover input ~ .checkmark-calendar 
+	{
+	    background-color: white;
+	    border: 2px solid;
+	    border-color: rgb(71, 184, 255);
+	}
+
+	/* Cette classe ajoute un fond blanc à la case lorsqu'elle est cochée */
+	.container input:checked ~ .checkmark-calendar 
+	{
+	    background-color: white;
+	}
+
+	/* Cette classe créée une coche/indique que la case est cochée (invisible sinon) */
+	.checkmark-calendar:after 
+	{
+	    content: "";
+	    position: absolute;
+	    display: none;
+	}
+
+	/* Cette classe présente la coche lorsque la case est cochée */
+	.container input:checked ~ .checkmark-calendar:after 
+	{
+	    display: block;
+	}
+
+	/* Cette clase détermine le style de la coche */
+	.container .checkmark-calendar:after 
+	{
+	    left: 7px;
+	    top: 2px;
+	    width: 6px;
+	    height: 12px;
+	    border: solid #85C42A;
+	    border-radius: 2px;
+	    border-width: 0 5px 5px 0;
+	    -webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}

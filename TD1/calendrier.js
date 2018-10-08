@@ -19,7 +19,6 @@ function genererVueCalendrier(listDate)
 
     for(let i = 0; i < 5; i++)
     {
-        //ICI AUSSI???
         let jourMois = listDate[2*i][0].substr(8, 2);
         let jourSemaine = listDate[2*i][0].substr(0, 3);
 
@@ -36,6 +35,16 @@ function genererVueCalendrier(listDate)
             document.getElementById("calendrier").innerHTML +=
             "<div class = 'calendar-time'>"+(8+i)+
             ":00</div><div class = 'calendar-time'></div><div class = 'calendar-time'></div><div class = 'calendar-time'></div><div class = 'calendar-time'></div><div class = 'calendar-time'></div><div class = 'end-border'></div><div class = 'end-border'></div><div class = 'end-border'></div><div class = 'end-border'></div><div class = 'end-border'></div><div class = 'end-border'></div>";
+        }
+        else if((8+i) == 10 || (8+i) == 14)
+        {
+            document.getElementById("calendrier").innerHTML +=
+            "<div class = 'calendar-time'>"+(8+i)+":00</div><div class = 'blue-box'><label class='container'><input type='checkbox'><span class='checkmark-calendar'></span></label><br><br><br><i class='fas fa-check'></i></div><div class = 'blue-box'><label class='container'><input type='checkbox'><span class='checkmark-calendar'></span></label><br><br><br><i class='fas fa-check'></i></div><div class = 'blue-box'><label class='container'><input type='checkbox'><span class='checkmark-calendar'></span></label><br><br><br><i class='fas fa-check'></i></div><div class = 'blue-box'><label class='container'><input type='checkbox'><span class='checkmark-calendar'></span></label><br><br><br><i class='fas fa-check'></i></div><div class = 'blue-box'><label class='container'><input type='checkbox'><span class='checkmark-calendar'></span></label><br><br><br><i class='fas fa-check'></i></div><div class = 'light-border'></div>";
+        }
+        else if((8+i) == 11 || (8+i) == 15)
+        {
+            document.getElementById("calendrier").innerHTML +=
+            "<div class = 'calendar-time'>"+(8+i)+":00</div><div class='light-border'></div>";
         }
         else
         {
@@ -65,15 +74,70 @@ function appuyerCrayon(indice, listDate, listParticipant)
             document.getElementById("temps"+i).style.backgroundColor = "white";
             document.getElementById("dispoParJour"+i).style.backgroundColor = "white";
         }
-    }
-    document.getElementById("fname").onkeydown = function(event)
-    {
-        if(event.keyCode == 13)
-        {
-            submit(data);
-        }
+        // listParticipant[indice].Statut = "EnCours";
     }
 }
+
+// function viderTable()
+// {
+//     document.getElementById("table").innerHTML = '';
+// }
+
+// function obtenirParticipantEnCours(listParticipant)
+// {
+//     for(let i = 0; i < listParticipant.length; i++)
+//     {
+//         if (listParticipant[i].Statut == "EnCours") 
+//         {
+//             return i;
+//         }
+//     }
+// }
+
+// function soumettre(data)
+// {
+//     let participantEnCours = data.Participants[obtenirParticipantEnCours(listParticipant)];
+
+//     if(enCours == data.Participants[0])
+//     {
+//         let tableDesDisponibilites = [];
+//         for (let i = 0; i < data.Calendrier.length; i++)
+//         {
+//             if(document.getElementById("checkbox"+i).checked)
+//             {
+//                 tableDesDisponibilites[i] = 1;
+//             }
+//             else
+//             {
+//                 tableDesDisponibilites[i] = 0;
+//             }
+//         }
+//         data['Participants'].push(
+//         {
+//             "Nom" : document.getElementById("fname").value,
+//             "Statut" : "Complété",
+//             "Disponibilités" : table
+//         })
+//     }
+//     else
+//     {
+//         for(var i = 0; i < data.Calendrier.length; i++)
+//         {
+//             if(document.getElementById("checkbox"+i).checked)
+//             {
+//                 participantEnCours.Disponibilités[i] = 1;
+//             }
+//             else
+//             {
+//                 participantEnCours.Disponibilités[i] = 0;
+//             }
+//         }
+//         participantEnCours.Statut = "Complété";
+//         data.Participants[0].Statut = "EnCours";
+//     }
+//     viderTable();
+//     genererTableau();
+// }
 
 function ecouterAppuieCrayon(crayon)
 {
@@ -104,7 +168,6 @@ function genererDisponibilitesParPersonne(data)
 
             for(let j = 0; j < data.Calendrier.length; j++)
             {
-                //FIND A WAY TO NOT REPEAT THIS!!!!
                 let jourSemaine = data.Calendrier[j][0].substr(0, 3);
                 let mois = data.Calendrier[j][0].substr(4, 3);
                 let jourMois = data.Calendrier[j][0].substr(8, 2);
@@ -138,6 +201,13 @@ function genererDisponibilitesParPersonne(data)
             }
         }
     }
+    // document.getElementById("fname").onkeydown = function(event)
+    // {
+    //     if(event.keyCode == 13)
+    //     {
+    //         soummettre(data);
+    //     }
+    // }
 }
 
 function appuyerCheckBox(checkbox)
@@ -158,7 +228,6 @@ function appuyerCheckBox(checkbox)
 
 function genererCheckBox(listDate)
 {
-    //put dispos de michel toutes a zero
     for(let i = 0; i < listDate.length; i++)
     {
         document.getElementById("table").innerHTML +=
@@ -168,7 +237,6 @@ function genererCheckBox(listDate)
 
 function genererZoneDeSaisie()
 {
-    //put michel as en cours
     document.getElementById("table").innerHTML +=
     "<div class='image-align-input-box'><span><img src='Images/particip1.png'></span><form><input type='text' id='fname' name='firstname' placeholder='Saisissez nom'></form></div>";
 }
