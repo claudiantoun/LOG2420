@@ -6,7 +6,7 @@
 */
 
 /**
-* 
+* Cette fonction genere la vue de la table a l'appuie du bouton "Table".
 */
 function genererVueTableau()
 {
@@ -15,7 +15,7 @@ function genererVueTableau()
 }
 
 /**
-* 
+* Cette fonction genere la vue du calendrier a l'appuie du bouton "Calendrier".
 */
 function genererVueCalendrier()
 {
@@ -25,7 +25,7 @@ function genererVueCalendrier()
 }
 
 /**
-* 
+* Cette fontion genere le style du calendrier.
 */
 function genererCalendrier(listDate)
 {
@@ -112,12 +112,13 @@ function genererCalendrier(listDate)
 }
 
 /**
-* 
+* A l'appui du crayon, cette fonction met le nom du participant dans la zone de saisie et coche les checkbox
+* qui correspondent a ses disponibilites. De plus, cette fonction change la couleur de l'arriere-plan des deux 
+* cases au-dessus des checkbox a vert lorsque ceux-ci sont coches. 
 */
 function appuyerCrayon(indice, listDate, listParticipant)
 {
     document.getElementById("fname").value = listParticipant[indice].Nom;
-    // document.getElementById("fnameCalendrier").value = listParticipant[indice].Nom;
 
     for(let i = 0; i < listDate.length; i++)
     {
@@ -134,13 +135,11 @@ function appuyerCrayon(indice, listDate, listParticipant)
             document.getElementById("dispoParJour"+i).style.backgroundColor = "white";
         }
         listParticipant[indice].Statut = "EnCours";
-        viderTable();
-        chargerPage(data);
     }
 }
 
 /**
-* 
+* Cette fonction vide la vue de la table.
 */
 function viderTable()
 {
@@ -148,7 +147,7 @@ function viderTable()
 }
 
 /**
-* 
+* Cette fonction retourne l'indice du/des participant(s) en cours.
 */
 function obtenirParticipantEnCours(listParticipant)
 {
@@ -162,7 +161,8 @@ function obtenirParticipantEnCours(listParticipant)
 }
 
 /**
-* 
+* Cette fonction sauvegarde les modifications apportees aux disponibilites des participants 
+* et recharge la vue de la table selon ces changements.
 */
 function soumettre(data)
 {
@@ -210,7 +210,8 @@ function soumettre(data)
 }
 
 /**
-* 
+* Cette fonction ecoute pour l'appui du crayon et appelle la fonction qui gere l'appui de ce bouton,
+* soit "appuyerCrayon(indice, listDate, listParticipant)".
 */
 function ecouterAppuieCrayon(crayon)
 {
@@ -220,7 +221,9 @@ function ecouterAppuieCrayon(crayon)
 }
 
 /**
-* 
+* Cette fonction genere les cases de la table qui contiennent les noms des participants ainsi que 
+* celles avec leurs disponibilites. De plus, a l'appui du bouton "enter", la fonction "soumettre"
+* est appelee.
 */
 function genererDisponibilitesParPersonne(data)
 {
@@ -315,7 +318,6 @@ function genererDisponibilitesParPersonne(data)
             }
         }
     }
-    chargerPage(data);
     document.getElementById("fname").onkeydown = function(event)
     {
         if(event.keyCode == 13)
@@ -326,7 +328,8 @@ function genererDisponibilitesParPersonne(data)
 }
 
 /**
-* 
+* Cette fonction gere l'appui des checkbox. Elle change la couleur de l'arriere-plan des deux 
+* cases au-dessus des checkbox a vert lorsque ceux-ci sont coches.
 */
 function appuyerCheckBox(checkbox)
 {
@@ -345,7 +348,7 @@ function appuyerCheckBox(checkbox)
 }
 
 /**
-* 
+* Cette fonction genere les cases avec les checkbox.
 */
 function genererCheckBox(data)
 {
@@ -362,7 +365,7 @@ function genererCheckBox(data)
 }
 
 /**
-* 
+* Cette fonction genere la case avec la zone de saisie.
 */
 function genererZoneDeSaisie()
 {
@@ -378,7 +381,7 @@ function genererZoneDeSaisie()
 }
 
 /**
-* 
+* Cette fonction genere la cases avec le nombre de participants total.
 */
 function genererNombreParticipants(data)
 {
@@ -397,7 +400,7 @@ function genererNombreParticipants(data)
 }
 
 /**
-* 
+* Cette fonction genere les cases avec le nombre de participants par jour.
 */
 function genererDisponibilitesParJour(data)
 {
@@ -406,7 +409,10 @@ function genererDisponibilitesParJour(data)
         let disponibilitesParJour = 0;
         for(let j = 0; j < data.Participants.length; j++)
         {
-            disponibilitesParJour += data.Participants[j].Disponibilités[i];
+            if(data.Participants[j].Statut == "Complété")
+            {
+                disponibilitesParJour += data.Participants[j].Disponibilités[i];
+            }
         }
         document.getElementById("table").innerHTML += 
         "<div class='image-align-check' id='dispoParJour"+i+"'>"+
@@ -417,7 +423,7 @@ function genererDisponibilitesParJour(data)
 }
 
 /**
-* 
+* Cette fonction genere les cases avec les dates.
 */
 function genererTemps(data)
 {
@@ -448,7 +454,8 @@ function genererTemps(data)
 }
 
 /**
-* 
+* Cette fonction gere l'appel de toutes les fonctions qui permettent de charger la table
+* correctement.
 */
 function chargerPage(data)
 {
@@ -461,7 +468,7 @@ function chargerPage(data)
 }
 
 /**
-* 
+* Cette fonction s'occupe de recuperer les donnees du fichier .json.
 */
 function genererTableau()
 {
