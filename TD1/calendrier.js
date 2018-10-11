@@ -1,12 +1,12 @@
 /**
-* Titre: Labo 1 - Tableau.js
-* Date: 7 octobre 2018
+* Titre: Labo 1 - calendrier.js
+* Date: 12 octobre 2018
 * Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
 * Desciption: Ce code permet de recréer un tableau Doodle.
 */
 
 /**
-* Cette fonction genere la vue de la table a l'appuie du bouton "Table".
+* Cette fonction génère la vue de la table à l'appuie du bouton "Table".
 */
 function genererVueTableau()
 {
@@ -15,7 +15,7 @@ function genererVueTableau()
 }
 
 /**
-* Cette fonction genere la vue du calendrier a l'appuie du bouton "Calendrier".
+* Cette fonction génère la vue du calendrier à l'appuie du bouton "Calendrier".
 */
 function genererVueCalendrier()
 {
@@ -25,7 +25,7 @@ function genererVueCalendrier()
 }
 
 /**
-* Cette fontion genere le style du calendrier.
+* Cette fontion génère le style du calendrier.
 */
 function genererCalendrier(listDate)
 {
@@ -80,7 +80,9 @@ function genererCalendrier(listDate)
                         "<input type='checkbox'>"+
                         "<span class='checkmark-calendar'></span>"+
                     "</label><br><br><br>"+
-                    "<i class='fas fa-check'></i>"+
+                    "<i class='fas fa-check'>"+
+                    	"<span class='font'>3</span>"+
+                    "</i>"+
                 "</div>";
             }
             document.getElementById("calendrier").innerHTML +=
@@ -112,9 +114,9 @@ function genererCalendrier(listDate)
 }
 
 /**
-* A l'appui du crayon, cette fonction met le nom du participant dans la zone de saisie et coche les checkbox
-* qui correspondent a ses disponibilites. De plus, cette fonction change la couleur de l'arriere-plan des deux 
-* cases au-dessus des checkbox a vert lorsque ceux-ci sont coches. 
+* À l'appui du crayon, cette fonction met le nom du participant dans la zone de saisie et coche les checkbox
+* qui correspondent à ses disponibilites. De plus, cette fonction change la couleur de l'arrière-plan des deux 
+* cases au-dessus des checkbox à vert lorsque ceux-ci sont cochés. 
 */
 function appuyerCrayon(indice, listDate, listParticipant)
 {
@@ -161,7 +163,7 @@ function obtenirParticipantEnCours(listParticipant)
 }
 
 /**
-* Cette fonction sauvegarde les modifications apportees aux disponibilites des participants 
+* Cette fonction sauvegarde les modifications apportées aux disponibilites des participants 
 * et recharge la vue de la table selon ces changements.
 */
 function soumettre(data)
@@ -210,7 +212,7 @@ function soumettre(data)
 }
 
 /**
-* Cette fonction ecoute pour l'appui du crayon et appelle la fonction qui gere l'appui de ce bouton,
+* Cette fonction écoute pour l'appui du crayon et appelle la fonction qui gère l'appui de ce bouton,
 * soit "appuyerCrayon(indice, listDate, listParticipant)".
 */
 function ecouterAppuieCrayon(crayon)
@@ -221,9 +223,9 @@ function ecouterAppuieCrayon(crayon)
 }
 
 /**
-* Cette fonction genere les cases de la table qui contiennent les noms des participants ainsi que 
-* celles avec leurs disponibilites. De plus, a l'appui du bouton "enter", la fonction "soumettre"
-* est appelee.
+* Cette fonction génère les cases de la table qui contiennent les noms des participants ainsi que 
+* celles avec leurs disponibilités. De plus, à l'appui du bouton "entrer", la fonction "soumettre"
+* est appelée.
 */
 function genererDisponibilitesParPersonne(data)
 {
@@ -328,8 +330,8 @@ function genererDisponibilitesParPersonne(data)
 }
 
 /**
-* Cette fonction gere l'appui des checkbox. Elle change la couleur de l'arriere-plan des deux 
-* cases au-dessus des checkbox a vert lorsque ceux-ci sont coches.
+* Cette fonction gère l'appui des checkbox. Elle change la couleur de l'arrière-plan des deux 
+* cases au-dessus des checkbox à vert lorsque ceux-ci sont cochés.
 */
 function appuyerCheckBox(checkbox)
 {
@@ -348,7 +350,7 @@ function appuyerCheckBox(checkbox)
 }
 
 /**
-* Cette fonction genere les cases avec les checkbox.
+* Cette fonction génère les cases avec les checkbox.
 */
 function genererCheckBox(data)
 {
@@ -381,7 +383,7 @@ function genererZoneDeSaisie()
 }
 
 /**
-* Cette fonction genere la cases avec le nombre de participants total.
+* Cette fonction génère la cases avec le nombre de participants total.
 */
 function genererNombreParticipants(data)
 {
@@ -400,7 +402,7 @@ function genererNombreParticipants(data)
 }
 
 /**
-* Cette fonction genere les cases avec le nombre de participants par jour.
+* Cette fonction génère les cases avec le nombre de participants par jour.
 */
 function genererDisponibilitesParJour(data)
 {
@@ -423,7 +425,7 @@ function genererDisponibilitesParJour(data)
 }
 
 /**
-* Cette fonction genere les cases avec les dates.
+* Cette fonction génère les cases avec les dates.
 */
 function genererTemps(data)
 {
@@ -454,7 +456,7 @@ function genererTemps(data)
 }
 
 /**
-* Cette fonction gere l'appel de toutes les fonctions qui permettent de charger la table
+* Cette fonction gère l'appel de toutes les fonctions qui permettent de charger la table
 * correctement.
 */
 function chargerPage(data)
@@ -468,7 +470,7 @@ function chargerPage(data)
 }
 
 /**
-* Cette fonction s'occupe de recuperer les donnees du fichier .json.
+* Cette fonction s'occupe de récuperer les donnees du fichier .json.
 */
 function genererTableau()
 {

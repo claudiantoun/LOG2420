@@ -1,6 +1,6 @@
 	/**
-	* Titre: Labo 1 - Tableau.css
- 	* Date: 7 octobre 2018
+	* Titre: Labo 1 - calendrier.css
+ 	* Date: 12 octobre 2018
  	* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
  	* Desciption: Ce code permet de recréer un tableau Doodle.
 	*/
@@ -459,7 +459,7 @@
 	    display: block;
 	}
 
-	/* Cette clase détermine le style de la coche */
+	/* Cette classe détermine le style de la coche */
 	.container .checkmark-calendar:after 
 	{
 	    left: 7px;
@@ -472,4 +472,10 @@
 	    -webkit-transform: rotate(45deg);
 	    -ms-transform: rotate(45deg);
 	    transform: rotate(45deg);
+	}
+
+	/* Cette classe détermine la police de caratères. */
+	.font
+	{
+		font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
 	}

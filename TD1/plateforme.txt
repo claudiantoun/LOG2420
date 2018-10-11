@@ -1,0 +1,1 @@
+La plateforme sur laquelle le code doit être testé est linux-firefox.
