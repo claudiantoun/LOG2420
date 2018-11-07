@@ -1,0 +1,114 @@
+    .grid-container 
+	{
+		display: grid;
+		grid-template-columns: 5px 500px 200px repeat(4, 25px) 5px;
+		grid-template-rows: 100px 35px 35px 500px 65px 20px;
+        background-color: white;
+	}
+									
+	.grid-container > div 
+	{
+		text-align: center;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+		font-size: 20px;
+        color: white;
+	}
+    .grid-margin
+    {
+        grid-area: auto/auto/span 6/ span 1;
+    }
+	.grid-header-1
+    {
+        background-color: rgb(230, 230, 230);
+    }
+    .grid-header-2
+    {
+    	background-color: rgb(230, 230, 230);
+    }
+    .active-group-header-top
+    {
+    	background-color: rgb(74, 135, 133);
+    	border-right: 1px solid white;
+        text-align: start !important;
+        font-size: 15px !important;
+        padding-left: 5px;
+        padding-top: 10px;
+        float: left;
+        clear: left;
+    }
+    .active-group-header-bottom
+    {
+    	background-color: rgb(74, 135, 133);
+    	border-right: 1px solid white;
+        text-align: start !important;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        float: left;
+        clear: left;
+    }
+    .group-list-header-top
+    {
+    	grid-area: auto/auto/ span 1/span 5; 
+    	background-color: rgb(74, 135, 133);
+        text-align: start !important;
+        font-size: 15px !important;
+        padding-left: 5px;
+        padding-top: 10px;
+        
+    }
+    .group-list-header-icons
+    { 
+   	 	background-color: rgb(74, 135, 133);
+	}
+    .group-list-header-bottom
+    {
+    	grid-area: auto/auto/ span 1/span 3; 
+   	 	background-color: rgb(74, 135, 133);
+     	text-align: start !important;
+     	padding-left: 5px;
+    	padding-bottom: 5px;
+    }
+    .group-list-body
+    {
+    	grid-area: auto/auto/span 3/ span 5;
+    }
+    .send-message-area
+    {
+    	background-color: rgb(74, 135, 133);
+        border-right: 1px solid rgba(226, 230, 233, 0.8);
+    }
+    .active-group-chat
+    {
+    	border-right: 1px solid rgba(226, 230, 233, 0.8);
+    }
+    input[type=text], select 
+    {
+	    width: 220px;
+	    padding: 16px 30px 30px 28px;
+	    display: inline-block;
+	    border: 1px solid rgba(0, 0, 0, 0);
+	    border-radius: 6px;
+	    box-sizing: border-box;
+	    font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+	    font-size: 16px;
+        width: 350px;
+	}
+    .active-group-chat-end
+    {
+   		 border-right: 1px solid rgba(226, 230, 233, 0.8);
+    }
+    .poly-logo
+    {
+        position: relative;
+        bottom: 30px;
+        left: -100px;
+        top: 30px
+    }
+    .icons
+    {
+        color: black;
+        position: relative;
+        bottom: 30px;
+        right: 15px;
+        top: 35px
+    }
