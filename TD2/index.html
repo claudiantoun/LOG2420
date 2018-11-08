@@ -14,9 +14,9 @@
 	<body>
 		<div class="grid-container">
             <div class="grid-margin"></div> 
-            <div class="grid-header-1">
+            <div class="grid-header-left">
                 <span class="poly-logo">
-                    <svg width="250px" height="43px" viewBox="0 0 265 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg onclick="window.location.reload()" width="250px" height="43px" viewBox="0 0 265 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g id="Group" transform="translate(-3.000000, -15.000000)">
                                 <text id="Poly-Chat" font-family="Metropolis-Light, Metropolis" font-size="50" font-weight="300">
@@ -33,17 +33,18 @@
                     </svg>
                 </span>
             </div>
-            <div class="grid-header-2"></div>
-            <div class="grid-header-2">
+            <div class="grid-header-right"></div>
+            <div class="grid-header-right"></div>
+            <div class="grid-header-right">
                 <span class="icons"><i class="fa fa-user"></i></span>
             </div>
-            <div class="grid-header-2">
+            <div class="grid-header-right">
                 <span class="icons"><i class="fa fa-bell"></i></span>
             </div>
-            <div class="grid-header-2">
+            <div class="grid-header-right">
                 <span class="icons"><i class="fa fa-globe"></i></span>
             </div>
-            <div class="grid-header-2">
+            <div class="grid-header-right-icon-cog">
                 <span class="icons"><i class="fa fa-cog"></i></span>
             </div>
             <div class="grid-margin"></div>
@@ -53,21 +54,24 @@
             <div class="group-list-header-top">Liste des groupes</div>
             <div class="active-group-header-bottom">Général</div>
             <div class="group-list-header-bottom">Groupes disponibles</div>
-            <div class="group-list-header-icons">
+            <div class="group-list-header-icon-plus">
                 <span><i class="fa fa-plus"></i></span>
             </div>
-            <div class="group-list-header-icons">
+            <div class="group-list-header-icon-cog">
                 <span></span><i class="fa fa-cog"></i></span>
             </div>
             
             
             <div class="active-group-chat"></div>
+            
+            <div class = "group-list-body-margin"></div>
             <div class="group-list-body"></div>
+            <div class = "group-list-body-margin"></div>
             
-            
-            <div class="send-message-area"><input type="text" id="fname" name="firstname" placeholder="Votre message ici"> 
-                <button class="button"><span class="button-text-style">Envoyer</span></button>
-            </div>
+            <button class="button"><span class="like-button"><i class="far fa-thumbs-up" style = "font-size:30px !important;"></i></span>
+            </button>
+            <div class="send-message-area"><input type="text" id="fname" name="firstname" placeholder="Votre message ici"></div>
+            <button class="button"><span class="button-text-style">Envoyer</span></button>
             <div class="active-group-chat-end"></div>
             <div class="grid-end"></div>
 		</div>

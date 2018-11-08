@@ -1,7 +1,7 @@
     .grid-container 
 	{
 		display: grid;
-		grid-template-columns: 5px 500px 200px repeat(4, 25px) 5px;
+		grid-template-columns: 5px 75px 350px 75px 10px 190px repeat(4, 45px) 10px 5px;
 		grid-template-rows: 100px 35px 35px 500px 65px 20px 5px;
         background-color: white;
 	}
@@ -15,19 +15,27 @@
 	}
     .grid-margin
     {
-        grid-area: auto/auto/span 6/ span 1;
+        grid-area: auto/auto/span 7/ span 1;
         background-color: rgb(230, 230, 230);
     }
-	.grid-header-1
+	.grid-header-left
     {
+		grid-area: auto/auto/span 1/ span 3;
         background-color: rgb(230, 230, 230);
     }
-    .grid-header-2
+    .grid-header-right
     {
+		
     	background-color: rgb(230, 230, 230);
+    }
+    .grid-header-right-icon-cog
+    {
+		background-color: rgb(230, 230, 230);
+		grid-area: auto/auto/span 1/ span 2;
     }
     .active-group-header-top
     {
+		grid-area: auto/auto/span 1/ span 3;
     	background-color: rgb(74, 135, 133);
     	border-right: 1px solid white;
         text-align: start !important;
@@ -39,6 +47,7 @@
     }
     .active-group-header-bottom
     {
+		grid-area: auto/auto/span 1/ span 3;
     	background-color: rgb(74, 135, 133);
     	border-right: 1px solid white;
         text-align: start !important;
@@ -49,7 +58,7 @@
     }
     .group-list-header-top
     {
-    	grid-area: auto/auto/ span 1/span 5; 
+    	grid-area: auto/auto/ span 1/span 7; 
     	background-color: rgb(74, 135, 133);
         text-align: start !important;
         font-size: 15px !important;
@@ -57,13 +66,18 @@
         padding-top: 10px;
         
     }
-    .group-list-header-icons
+    .group-list-header-icon-plus
     { 
+   	 	background-color: rgb(74, 135, 133);
+	}
+	.group-list-header-icon-cog
+    { 
+		grid-area: auto/auto/ span 1/span 2; 
    	 	background-color: rgb(74, 135, 133);
 	}
     .group-list-header-bottom
     {
-    	grid-area: auto/auto/ span 1/span 3; 
+    	grid-area: auto/auto/ span 1/span 4; 
    	 	background-color: rgb(74, 135, 133);
      	text-align: start !important;
      	padding-left: 5px;
@@ -73,6 +87,10 @@
     {
     	grid-area: auto/auto/span 3/ span 5;
     }
+    .group-list-body-margin
+    {
+		grid-area: auto/auto/span 3/ span 1;
+    }
     .send-message-area
     {
     	background-color: rgb(74, 135, 133);
@@ -80,6 +98,7 @@
     }
     .active-group-chat
     {
+		grid-area: auto/auto/span 1/ span 3;
     	border-right: 1px solid rgba(226, 230, 233, 0.8);
     }
     input[type=text], select 
@@ -96,11 +115,12 @@
 	}
     .active-group-chat-end
     {
+		 grid-area: auto/auto/span 1/ span 3;
    		 border-right: 1px solid rgba(226, 230, 233, 0.8);
     }
     .grid-end
     {
-        grid-area: auto/auto/ span 1/ span 8;
+        grid-area: auto/auto/ span 1/ span 10;
         background-color:  rgb(230, 230, 230);
     }
     .poly-logo
@@ -119,7 +139,7 @@
     .button
     {
         position: relative;
-        width: 100px;
+        width: 75px;
         height: 65px;
         background-color: rgb(74, 135, 133);
         border-color: rgb(74, 135, 133);
@@ -127,4 +147,12 @@
     .button-text-style
     {
         color:white;
+    }
+    .like-button
+    {
+        color:white;
+    }
+    .like-area
+    {
+		background-color: rgb(74, 135, 133);
     }
