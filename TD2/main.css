@@ -2,7 +2,7 @@
 	{
 		display: grid;
 		grid-template-columns: 5px 75px 350px 75px 10px 190px repeat(4, 45px) 10px 5px;
-		grid-template-rows: 100px 35px 35px 500px 65px 20px 5px;
+		grid-template-rows: 100px repeat(2,35px) 30px 470px 65px 20px 5px;
         background-color: white;
 	}
 									
@@ -15,7 +15,7 @@
 	}
     .grid-margin
     {
-        grid-area: auto/auto/span 7/ span 1;
+        grid-area: auto/auto/span 8/ span 1;
         background-color: rgb(230, 230, 230);
     }
 	.grid-header-left
@@ -85,11 +85,15 @@
     }
     .group-list-body
     {
-    	grid-area: auto/auto/span 3/ span 5;
+    	grid-area: auto/auto/span 1/ span 5;
+    }
+    .group-list-body-end
+    {
+		grid-area: auto/auto/span 2/ span 5;
     }
     .group-list-body-margin
     {
-		grid-area: auto/auto/span 3/ span 1;
+		grid-area: auto/auto/span 4/ span 1;
     }
     .send-message-area
     {
@@ -100,6 +104,16 @@
     {
 		grid-area: auto/auto/span 1/ span 3;
     	border-right: 1px solid rgba(226, 230, 233, 0.8);
+    }
+    .active-group-chat-top
+    {
+		border-right: 1px solid rgba(226, 230, 233, 0.8);
+		grid-area: auto/auto/span 1/ span 3;
+    }
+    .group-list-body-top
+    {
+		
+		grid-area: auto/auto/span 1/ span 5;
     }
     input[type=text], select 
     {
@@ -156,3 +170,4 @@
     {
 		background-color: rgb(74, 135, 133);
     }
+	
