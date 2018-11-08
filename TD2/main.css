@@ -2,7 +2,7 @@
 	{
 		display: grid;
 		grid-template-columns: 5px 500px 200px repeat(4, 25px) 5px;
-		grid-template-rows: 100px 35px 35px 500px 65px 20px;
+		grid-template-rows: 100px 35px 35px 500px 65px 20px 5px;
         background-color: white;
 	}
 									
@@ -16,6 +16,7 @@
     .grid-margin
     {
         grid-area: auto/auto/span 6/ span 1;
+        background-color: rgb(230, 230, 230);
     }
 	.grid-header-1
     {
@@ -97,6 +98,11 @@
     {
    		 border-right: 1px solid rgba(226, 230, 233, 0.8);
     }
+    .grid-end
+    {
+        grid-area: auto/auto/ span 1/ span 8;
+        background-color:  rgb(230, 230, 230);
+    }
     .poly-logo
     {
         position: relative;
@@ -108,7 +114,17 @@
     {
         color: black;
         position: relative;
-        bottom: 30px;
-        right: 15px;
-        top: 35px
+        top: 35px;
+    }
+    .button
+    {
+        position: relative;
+        width: 100px;
+        height: 65px;
+        background-color: rgb(74, 135, 133);
+        border-color: rgb(74, 135, 133);
+    }
+    .button-text-style
+    {
+        color:white;
     }
