@@ -25,8 +25,7 @@
     }
     .grid-header-right
     {
-		
-    	background-color: rgb(230, 230, 230);
+        background-color: rgb(230, 230, 230);
     }
     .grid-header-right-icon-cog
     {
@@ -198,9 +197,35 @@
     }
     .message-sent
     {
-        color: skyblue;
+        background-color: rgb(74, 135, 133);
+        width: 315px;
+        color: black;
+        border-radius: 25px;
+        position: relative;
+        text-align: right;
+        align-self: right;
+        right: 10px;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        font-size: 15px;
+        padding-right: 10px;
     }
     .message-recieved
     {
-        color: lightgray;
+        background-color: rgba(226, 230, 233, 0.8);
+        width: 315px;
+        color: black;
+        border-radius: 25px;
+        position: relative;
+        text-align: left;
+        align-self: left;
+        left: 10px;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    .username-style
+    {
+        color: green;
+        font-size: 12px;
+        left: -50px
     }

@@ -1,13 +1,16 @@
 let username;
 let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
 let connectionHandler;
-//let messageObserver;
 
 function createActionHandler()
 {
     username = getUsername();
+    document.getElementById("userIcon").innerHTML = 
+    "<span class='icons'>"+
+        "<i class='fa fa-user'></i>"+
+        "+<span class='username-style'>"+username+"</span>"+
+    "</span>";
     connectionHandler = new ConnectionHandler(url, username);
-    //messageObserver = new MessageObserver();
     connectionHandler.actionHandler();
 }
 
@@ -18,7 +21,6 @@ function clickChannelIcon(icon)
     if(icon.className == "fas fa-plus")
     {
         icon.className = "fas fa-minus";
-        //console.log(icon.textcontent);
     }
     else if(icon.className == "fas fa-minus")
     {
@@ -28,7 +30,7 @@ function clickChannelIcon(icon)
 
 function getUsername()
 {
-    let userEntry = prompt("Please enter your username:", "Username");
+    let userEntry = prompt("Please enter your username:", "Name");
     if (userEntry == null || userEntry == "") 
     {
         getUsername();

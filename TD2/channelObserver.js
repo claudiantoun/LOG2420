@@ -13,7 +13,7 @@ class ChannelObserver
             {
                 document.getElementById("channelBox").innerHTML += 
                 "<div class='channels-style'>"+
-                    "<i id='"+myObj.data[i].id+"' style='color:orange' class='fas fa-star'></i>"+
+                    "<i id='"+myObj.data[i].id+"' style='color:rgb(253, 134, 74)' class='fas fa-star'></i>"+
                     "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                 "</div>";
             }

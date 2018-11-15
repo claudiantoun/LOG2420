@@ -3,7 +3,6 @@ class ConnectionHandler
     constructor(url, username)
     {
         this.websocket = new WebSocket(url+username);
-        //this.channelObserver = new ChannelObserver();
     }
 
     actionHandler()

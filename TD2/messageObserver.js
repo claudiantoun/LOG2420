@@ -17,8 +17,8 @@ class MessageObserver
             newMessage.setAttribute("class", "message-recieved");
         }
         newMessage.textContent = data;
-        console.log(newMessage.textContent);
         document.getElementById("groupChat").appendChild(newMessage);
-
+        let emptyDiv = document.createElement("div");
+        document.getElementById("groupChat").appendChild(emptyDiv);
     }
 }
