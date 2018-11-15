@@ -1,23 +1,40 @@
-let username = "Name";
+let username;
 let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
-let websocket = new WebSocket(url+username);
+let connectionHandler;
+//let messageObserver;
 
-websocket.onmessage = function(event)
+function createActionHandler()
 {
-    let myObj = JSON.parse(event.data);
-    switch(myObj.eventType)
-        {
-            case "onMessage":
-                console.log("onMessage");
-            case "onCreateChannel":
-                console.log("onCreateChannel");
-            case "onJoinChannel":
-                console.log("onJoinChannel");
-            case "onLeaveChannel":
-                console.log("onLeaveChannel");
-            case "updateChannelsList":
-                console.log("updateChannelsList");
-            case "onError":
-                console.log("onError");
-        }
+    username = getUsername();
+    connectionHandler = new ConnectionHandler(url, username);
+    //messageObserver = new MessageObserver();
+    connectionHandler.actionHandler();
+}
+
+//problem is the color doesnt change to orange when it goes to minus
+// maybe use textcontent;
+function clickChannelIcon(icon)
+{
+    if(icon.className == "fas fa-plus")
+    {
+        icon.className = "fas fa-minus";
+        //console.log(icon.textcontent);
+    }
+    else if(icon.className == "fas fa-minus")
+    {
+        icon.className = "fas fa-plus"
+    }
+}
+
+function getUsername()
+{
+    let userEntry = prompt("Please enter your username:", "Username");
+    if (userEntry == null || userEntry == "") 
+    {
+        getUsername();
+    } 
+    else 
+    {
+        return userEntry;
+    }
 }

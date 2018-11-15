@@ -85,7 +85,7 @@
     }
     .group-list-body
     {
-    	grid-area: auto/auto/span 1/ span 5;
+        grid-area: auto/auto/span 1/ span 5;
     }
     .group-list-body-end
     {
@@ -170,4 +170,37 @@
     {
 		background-color: rgb(74, 135, 133);
     }
-	
+    .channels-style
+    {
+        color: rgb(50, 122, 183);
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        left: 30px;
+        position: relative;
+        text-align: left;
+        background-color: rgb(249, 249, 249);
+        width: 315px;
+        height: 40px;
+    }
+    .channels-style-dark-grey
+    {
+        color: rgb(50, 122, 183);
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        left: 30px;
+        position: relative;
+        text-align: left;
+        background-color: rgb(238, 238, 238);
+        width: 315px;
+        height: 40px;
+    }
+    .channel-icon-spacing
+    {
+        padding-left: 20px;
+    }
+    .message-sent
+    {
+        color: skyblue;
+    }
+    .message-recieved
+    {
+        color: lightgray;
+    }
