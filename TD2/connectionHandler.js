@@ -22,7 +22,6 @@ class ConnectionHandler
                     break;
                 case "onCreateChannel":
                     console.log("onCreateChannel");
-                    //channelObserver.showChannels(myObj);
                     break;
                 case "onJoinChannel":
                     console.log("onJoinChannel");
@@ -40,7 +39,10 @@ class ConnectionHandler
                     channelObserver.showChannels(myObj);
                     break;
                 case "onError":
+                //im not sure what to do here IDKKKK
                     console.log("onError");
+                    alert("Nous avons attrapé une erreur. Nous allons relancer la page.");
+                    setTimeout(window.location.reload(), 5000);
                     break;
             }
         }
@@ -63,7 +65,7 @@ class ConnectionHandler
     // createChannel()
     // {
     //     id, name, status, messages, numberOfUsers
-    //     let newChannel = new Channel("onMessage", this.arrayOfChannels[0], "test", null, null);
+    //     let newChannel = new Channel(, true, , 1);
     //     this.websocket.send(JSON.stringify(newChannel));
     // }
 }

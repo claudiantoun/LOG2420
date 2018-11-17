@@ -11,7 +11,8 @@ function createActionHandler()
         "+<span class='username-style'>"+username+"</span>"+
     "</span>";
     connectionHandler = new ConnectionHandler(url, username);
-    connectionHandler.actionHandler();  
+    connectionHandler.actionHandler();
+    sendMessage();  
 }
 
 //problem is the color doesnt change to orange when it goes to minus
@@ -42,7 +43,6 @@ function getUsername()
     }
 }
 
-//I THINK IT WERKS
 function sendMessage()
 {
     document.getElementById("fname").onkeydown = function(event)
