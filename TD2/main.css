@@ -102,7 +102,9 @@
     .active-group-chat
     {
 		grid-area: auto/auto/span 1/ span 3;
-    	border-right: 1px solid rgba(226, 230, 233, 0.8);
+        border-right: 1px solid rgba(226, 230, 233, 0.8);
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     .active-group-chat-top
     {
@@ -198,23 +200,27 @@
     .message-sent
     {
         background-color: rgb(74, 135, 133);
-        width: 315px;
         color: black;
-        border-radius: 25px;
+        border-radius: 15px;
         position: relative;
         text-align: right;
         align-self: right;
-        right: 10px;
+        left: 230px;
         font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
         font-size: 15px;
         padding-right: 10px;
+        width: auto;
+        max-width: 230px;
+        height: auto;
     }
     .message-recieved
     {
         background-color: rgba(226, 230, 233, 0.8);
-        width: 315px;
+        width: auto;
+        height: auto;
+        max-width: 230px;
         color: black;
-        border-radius: 25px;
+        border-radius: 15px;
         position: relative;
         text-align: left;
         align-self: left;
@@ -228,4 +234,34 @@
         color: green;
         font-size: 12px;
         left: -50px
+    }
+    .message-sent-usernameOrTimestamp
+    {
+        background-color: white;
+        color: black;
+        position: relative;
+        text-align: right;
+        align-self: right;
+        left: 230px;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        font-size: 10px;
+        padding-right: 10px;
+        width: auto;
+        max-width: 230px;
+        height: auto;
+    }
+    .message-recieved-usernameOrTimestamp
+    {
+        background-color: white;
+        width: auto;
+        height: auto;
+        max-width: 230px;
+        color: black;
+        position: relative;
+        text-align: left;
+        align-self: left;
+        left: 10px;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        font-size: 10px;
+        padding-left: 10px;
     }
