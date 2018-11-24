@@ -5,6 +5,8 @@ class ConnectionHandler
         this.websocket = new WebSocket(url+username);
         this.arrayOfChannels = new Array();
         this.username = username;
+        this.generalChannel = "";
+        this.currentChannel = "";
     }
 
     actionHandler()
@@ -12,6 +14,7 @@ class ConnectionHandler
         let channelObserver = new ChannelObserver();
         let messageObserver = new MessageObserver(this.username);
         let copyConnectionHandler = this;
+
         this.websocket.onmessage = function(event)
         {
             let myObj = JSON.parse(event.data);
@@ -29,10 +32,10 @@ class ConnectionHandler
                         copyConnectionHandler.arrayOfChannels[i] = myObj.data[i].id;
                     }
                     channelObserver.showChannels(myObj);
+                    copyConnectionHandler.getGeneralChannelId();
                     break;
                 case "onError":
                 //im not sure what to do here IDKKKK
-                    console.log("onError");
                     alert("Nous avons attrapé une erreur. Nous allons relancer la page.");
                     setTimeout(window.location.reload(), 5000);
                     break;
@@ -46,19 +49,42 @@ class ConnectionHandler
     //     this.websocket.send(JSON.stringify(oldMessage));
     // }
 
+    getGeneralChannelId()
+    {
+        this.generalChannel = document.getElementById("generalChannel").childNodes[0].id;
+        if(this.currentChannel == "")
+        {
+            this.currentChannel = this.generalChannel;
+        }
+    }
+
+    changeCurrentChannel(channelId)
+    {
+        this.currentChannel = channelId;
+    }
+
     //CurrentChannel get it in the array (iterate through the array) and see if the joinStatus is true
     createMessage()
     {
+        //dont forgot the console log
+        console.log(this.currentChannel);
         let userEntryMessage = document.getElementById("fname").value;
-        let message = new Message("onMessage", this.arrayOfChannels[0], userEntryMessage, null, null);
+        let message = new Message("onMessage", this.currentChannel, userEntryMessage, null, null);
         this.websocket.send(JSON.stringify(message));
         document.getElementById("fname").value = "";
     }
 
     createChannel(channelName)
     {
-        let newChannel = new Message("onCreateChannel", null, channelName, null, null);
-        this.websocket.send(JSON.stringify(newChannel));
+        if(channelName == null || channelName == "")
+        {
+            return;
+        }
+        else
+        {
+            let newChannel = new Message("onCreateChannel", null, channelName, null, null);
+            this.websocket.send(JSON.stringify(newChannel));
+        }
     }
 
     joinChannel(iconId)

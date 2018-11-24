@@ -13,7 +13,6 @@ class MessageObserver
         let newMessageUsername = document.createElement("div");
         let newMessage = document.createElement("div");
         let newMessageTimestamp = document.createElement("div");
-        let emptyDiv = document.createElement("div");
         let messageDay = timestamp.substring(8, 10);
         let messageMonth = timestamp.substring(5, 7);
         let messageTime = timestamp.substring(11, 16);
@@ -21,24 +20,21 @@ class MessageObserver
         newMessageUsername.textContent = sender;
         newMessage.textContent = data;
         newMessageTimestamp.textContent = messageDay + " " + month[messageMonth - 1] + ", " + messageTime;
-        emptyDiv.textContent = "";
         
         if (sender == this.username)
         {
-            //newMessageUsername.setAttribute("class", "message-sent-usernameOrTimestamp");
             newMessage.setAttribute("class", "message-sent");
-            newMessageTimestamp.setAttribute("class", "message-sent-usernameOrTimestamp");
+            newMessageTimestamp.setAttribute("class", "message-sent-timestamp");
         }
         else 
         {
-            newMessageUsername.setAttribute("class", "message-recieved-usernameOrTimestamp");
+            newMessageUsername.setAttribute("class", "message-recieved-username");
             newMessage.setAttribute("class", "message-recieved");
-            newMessageTimestamp.setAttribute("class", "message-recieved-usernameOrTimestamp");
+            newMessageTimestamp.setAttribute("class", "message-recieved-timestamp");
         }
 
         document.getElementById("groupChat").appendChild(newMessageUsername);
         document.getElementById("groupChat").appendChild(newMessage);
         document.getElementById("groupChat").appendChild(newMessageTimestamp);
-        document.getElementById("groupChat").appendChild(emptyDiv);
     }
 }

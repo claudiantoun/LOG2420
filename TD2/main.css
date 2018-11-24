@@ -27,6 +27,11 @@
     {
         background-color: rgb(230, 230, 230);
     }
+    .grid-header-right-profile
+    {
+        background-color: rgb(230, 230, 230);
+        padding-right: 10px;
+    }
     .grid-header-right-icon-cog
     {
 		background-color: rgb(230, 230, 230);
@@ -151,6 +156,10 @@
         color: black;
         position: relative;
         top: 35px;
+        /* white-space: nowrap;  */
+        width: 50px !important; 
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .button
     {
@@ -200,7 +209,7 @@
     }
     .message-sent
     {
-        background-color: rgb(74, 135, 133);
+        background-color: rgb(120, 200, 200);
         color: black;
         border-radius: 15px;
         position: relative;
@@ -234,9 +243,9 @@
     {
         color: green;
         font-size: 12px;
-        left: -50px
+        left: -50px;
     }
-    .message-sent-usernameOrTimestamp
+    .message-sent-timestamp
     {
         background-color: white;
         color: black;
@@ -247,15 +256,16 @@
         font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
         font-size: 10px;
         padding-right: 10px;
+        padding-top: 10px;
         width: auto;
         max-width: 230px;
-        height: auto;
+        height: 20px;
     }
-    .message-recieved-usernameOrTimestamp
+    .message-recieved-timestamp
     {
         background-color: white;
         width: auto;
-        height: auto;
+        height: 20px;
         max-width: 230px;
         color: black;
         position: relative;
@@ -265,4 +275,22 @@
         font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
         font-size: 10px;
         padding-left: 10px;
+        padding-top: 10px;
+    }
+    .message-recieved-username
+    {
+        background-color: white;
+        width: auto;
+        height: 20px;
+        max-width: 230px;
+        color: black;
+        position: relative;
+        text-align: left;
+        align-self: left;
+        left: 10px;
+        font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
+        font-size: 13px;
+        padding-left: 10px;
+        padding-top: 10px;
+        font-weight: bold;
     }

@@ -26,14 +26,33 @@ function clickChannelIcon(icon)
     }
     else if(icon.className == "fas fa-minus")
     {
+        //dont forgot the console log
         connectionHandler.leaveChannel(icon.id);
+        // let generalId = document.getElementById("generalChannel").childNodes[0].id;
+        // console.log(generalId);
+        // connectionHandler.changeCurrentChannel(generalId);
     }
 }
 
-// function getCurrentChannelId(currentChannelBox)
-// {
-//     return currentChannelBox.id;
-// }
+//when going from minus to plus active group name gotta be general and the current chat needs to be general as well!!
+function getCurrentChannelId(currentChannelBox)
+{
+    channel = currentChannelBox.childNodes[0];
+    activeGroup = currentChannelBox.childNodes[1].innerText;
+    if(channel.className == "fas fa-minus" || channel.className == "fas fa-star")
+    {
+        //dont forgot the console log
+        console.log(channel.id);
+        document.getElementById("groupChat").innerHTML = "";
+        document.getElementById("activeChannel").innerText = activeGroup;
+        connectionHandler.changeCurrentChannel(channel.id);
+    }
+    else
+    {
+        let generalId = document.getElementById("generalChannel").childNodes[0].id;
+        connectionHandler.changeCurrentChannel(generalId);
+    }
+}
 
 function getUsername()
 {
@@ -67,7 +86,6 @@ function clickToAddChannel()
     getChannelName();
 }
 
-// it doesnt like it when u dont put a name for the channel
 function getChannelName()
 {
     let userEntry = prompt("Veuillez entrer le nom du nouveau groupe:", "");

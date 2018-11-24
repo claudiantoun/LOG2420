@@ -19,8 +19,8 @@ class ChannelObserver
             if(myObj.data[i].name == "Général")
             {
                 document.getElementById("channelBox").innerHTML += 
-                "<div class='channels-style'>"+
-                    "<i id='"+myObj.data[i].id+"' style='color:rgb(253, 134, 74)' class='fas fa-star'></i>"+
+                "<div id='generalChannel' onclick='getCurrentChannelId(this)' class='channels-style'>"+
+                    "<i id='"+myObj.data[i].id+"' style='color:rgb(253, 134, 74); padding-top:9px; padding-left:15px;' class='fas fa-star'></i>"+
                     "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                 "</div>";
             }
@@ -29,16 +29,16 @@ class ChannelObserver
                 if(myObj.data[i].joinStatus == false)
                 {
                     document.getElementById("channelBox").innerHTML += 
-                    "<div class='channels-style'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133)' class='fas fa-plus'></i>"+
+                    "<div onclick='getCurrentChannelId(this)' class='channels-style'>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133); padding-top:9px; padding-left:15px;' class='fas fa-plus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }
                 else
                 {
                     document.getElementById("channelBox").innerHTML += 
-                    "<div class='channels-style'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange' class='fas fa-minus'></i>"+
+                    "<div onclick='getCurrentChannelId(this)' class='channels-style'>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange; padding-top:9px; padding-left:15px;' class='fas fa-minus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }
@@ -48,16 +48,16 @@ class ChannelObserver
                 if(myObj.data[i].joinStatus == false)
                 {
                     document.getElementById("channelBox").innerHTML += 
-                    "<div class='channels-style-dark-grey'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133)' class='fas fa-plus'></i>"+
+                    "<div onclick='getCurrentChannelId(this)' class='channels-style-dark-grey'>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133); padding-top:9px; padding-left:15px;' class='fas fa-plus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }
                 else
                 {
                     document.getElementById("channelBox").innerHTML += 
-                    "<div class='channels-style-dark-grey'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange' class='fas fa-minus'></i>"+
+                    "<div onclick='getCurrentChannelId(this)' class='channels-style-dark-grey'>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange; padding-top:9px; padding-left:15px;' class='fas fa-minus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }
