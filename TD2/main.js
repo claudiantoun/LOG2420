@@ -1,5 +1,6 @@
 let username;
 let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
+//let url = "ws://inter-host.ca:3000/chatservice?username=";
 let connectionHandler;
 
 function createActionHandler()
@@ -12,38 +13,34 @@ function createActionHandler()
     "</span>";
     connectionHandler = new ConnectionHandler(url, username);
     connectionHandler.actionHandler();
-    sendMessage();  
+    enterToSendMessage();  
 }
 
 //problem is the color doesnt change to orange when it goes to minus
-// maybe use textcontent;
-// this method is not good apparently gotta do smtg w onjoin or onleavechannel
 function clickChannelIcon(icon)
 {
     if(icon.className == "fas fa-plus")
     {
-        icon.className = "fas fa-minus";
+        connectionHandler.joinChannel();
     }
     else if(icon.className == "fas fa-minus")
     {
-        icon.className = "fas fa-plus"
+        connectionHandler.leaveChannel();
     }
 }
 
 function getUsername()
 {
-    let userEntry = prompt("Veuillez entrer votre nom d'utilisateur:", "");
-    if (userEntry == null || userEntry == "") 
+    let userEntry;
+    do 
     {
-        getUsername();
-    } 
-    else 
-    {
-        return userEntry;
+        userEntry = prompt("Veuillez entrer votre nom d'utilisateur:", "");
     }
+    while(userEntry == null || userEntry == "")
+    return userEntry;
 }
 
-function sendMessage()
+function enterToSendMessage()
 {
     document.getElementById("fname").onkeydown = function(event)
     {
@@ -59,7 +56,14 @@ function clickToSendMessage()
     connectionHandler.createMessage();
 }
 
-// function sendChannel()
-// {
-//        let userEntry = prompt("Veuillez entrer votre nom d'utilisateur:", "");
-// }
+function clickToAddChannel()
+{
+    getChannelName();
+}
+
+// it doesnt like it when u dont put a name for the channel
+function getChannelName()
+{
+    let userEntry = prompt("Veuillez entrer le nom du nouveau groupe:", "");
+    connectionHandler.createChannel(userEntry);
+}

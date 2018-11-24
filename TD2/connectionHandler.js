@@ -20,18 +20,10 @@ class ConnectionHandler
                 case "onMessage":
                     messageObserver.displayMessage(myObj.data, myObj.sender, myObj.timestamp);
                     break;
-                case "onCreateChannel":
-                    console.log("onCreateChannel");
-                    break;
-                case "onJoinChannel":
-                    console.log("onJoinChannel");
-                    break;
-                case "onLeaveChannel":
-                    console.log("onLeaveChannel");
-                    break;
                 case "updateChannelsList":
                 //dont forget to delete the console.log
                     console.log(myObj);
+                    channelObserver.emptyChannelBox();
                     for(let i = 0; i < myObj.data.length; i++)
                     {
                         copyConnectionHandler.arrayOfChannels[i] = myObj.data[i].id;
@@ -50,8 +42,15 @@ class ConnectionHandler
 
     getCurrentChannel()
     {
-
+        
     }
+
+    // I think we can do this if we want to... 
+    // getOldMessages()
+    // {
+    //     let oldMessage = new Message("onGetChannel", this.arrayOfChannels[2], null, null, null);
+    //     this.websocket.send(JSON.stringify(oldMessage));
+    // }
 
     //CurrentChannel get it in the array (iterate through the array) and see if the joinStatus is true
     createMessage()
@@ -62,10 +61,23 @@ class ConnectionHandler
         document.getElementById("fname").value = "";
     }
 
-    // createChannel()
-    // {
-    //     id, name, status, messages, numberOfUsers
-    //     let newChannel = new Channel(, true, , 1);
-    //     this.websocket.send(JSON.stringify(newChannel));
-    // }
+    createChannel(channelName)
+    {
+        let newChannel = new Message("onCreateChannel", null, channelName, null, null);
+        this.websocket.send(JSON.stringify(newChannel));
+    }
+
+    //i can click any icon and itll put the second channel to true and then goog luck putting it back to false
+    joinChannel()
+    {
+        //getOldMessages();
+        let joinedChannel = new Message("onJoinChannel", this.arrayOfChannels[2], null, null, null);
+        this.websocket.send(JSON.stringify(joinedChannel));
+    }
+
+    leaveChannel()
+    {
+        let channelLeft = new Message("onLeaveChannel", this.arrayOfChannels[2], null, null, null);
+        this.websocket.send(JSON.stringify(channelLeft));
+    }
 }

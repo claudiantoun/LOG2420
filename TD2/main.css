@@ -84,6 +84,8 @@
     }
     .group-list-body
     {
+        overflow-y: auto;
+        overflow-x: hidden;
         grid-area: auto/auto/span 1/ span 5;
     }
     .group-list-body-end
@@ -113,7 +115,6 @@
     }
     .group-list-body-top
     {
-		
 		grid-area: auto/auto/span 1/ span 5;
     }
     input[type=text], select 
