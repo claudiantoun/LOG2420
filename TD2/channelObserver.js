@@ -1,10 +1,12 @@
 class ChannelObserver
 {
-    constructor()
-    {
+    // constructor()
+    // {
         
-    }
+    // }
 
+    //id='"+myObj.data[i].id+"' onclick='getCurrentChannelId(this)'
+    
     emptyChannelBox()
     {
         document.getElementById("channelBox").innerHTML = '';
@@ -36,7 +38,7 @@ class ChannelObserver
                 {
                     document.getElementById("channelBox").innerHTML += 
                     "<div class='channels-style'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133)' class='fas fa-minus'></i>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange' class='fas fa-minus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }
@@ -55,7 +57,7 @@ class ChannelObserver
                 {
                     document.getElementById("channelBox").innerHTML += 
                     "<div class='channels-style-dark-grey'>"+
-                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:rgb(74, 135, 133)' class='fas fa-minus'></i>"+
+                        "<i id='"+myObj.data[i].id+"' onclick='clickChannelIcon(this)' style='color:orange' class='fas fa-minus'></i>"+
                         "<span class='channel-icon-spacing'>"+myObj.data[i].name+"</span>"+
                     "</div>";
                 }

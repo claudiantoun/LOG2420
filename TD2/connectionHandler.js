@@ -40,15 +40,9 @@ class ConnectionHandler
         }
     }
 
-    getCurrentChannel()
-    {
-        
-    }
-
-    // I think we can do this if we want to... 
-    // getOldMessages()
+    // getOldMessages(iconId)
     // {
-    //     let oldMessage = new Message("onGetChannel", this.arrayOfChannels[2], null, null, null);
+    //     let oldMessage = new Message("onGetChannel", iconId, null, null, null);
     //     this.websocket.send(JSON.stringify(oldMessage));
     // }
 
@@ -67,17 +61,15 @@ class ConnectionHandler
         this.websocket.send(JSON.stringify(newChannel));
     }
 
-    //i can click any icon and itll put the second channel to true and then goog luck putting it back to false
-    joinChannel()
+    joinChannel(iconId)
     {
-        //getOldMessages();
-        let joinedChannel = new Message("onJoinChannel", this.arrayOfChannels[2], null, null, null);
+        let joinedChannel = new Message("onJoinChannel", iconId, null, null, null);
         this.websocket.send(JSON.stringify(joinedChannel));
     }
 
-    leaveChannel()
+    leaveChannel(iconId)
     {
-        let channelLeft = new Message("onLeaveChannel", this.arrayOfChannels[2], null, null, null);
+        let channelLeft = new Message("onLeaveChannel", iconId, null, null, null);
         this.websocket.send(JSON.stringify(channelLeft));
     }
 }

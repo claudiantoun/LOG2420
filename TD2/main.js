@@ -5,6 +5,8 @@ let connectionHandler;
 
 function createActionHandler()
 {
+    document.getElementById("fname").focus();
+    document.getElementById("fname").select();
     username = getUsername();
     document.getElementById("userIcon").innerHTML = 
     "<span class='icons'>"+
@@ -16,18 +18,22 @@ function createActionHandler()
     enterToSendMessage();  
 }
 
-//problem is the color doesnt change to orange when it goes to minus
 function clickChannelIcon(icon)
 {
     if(icon.className == "fas fa-plus")
     {
-        connectionHandler.joinChannel();
+        connectionHandler.joinChannel(icon.id);
     }
     else if(icon.className == "fas fa-minus")
     {
-        connectionHandler.leaveChannel();
+        connectionHandler.leaveChannel(icon.id);
     }
 }
+
+// function getCurrentChannelId(currentChannelBox)
+// {
+//     return currentChannelBox.id;
+// }
 
 function getUsername()
 {
