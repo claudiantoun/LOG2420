@@ -1,12 +1,5 @@
 class ChannelObserver
-{
-    // constructor()
-    // {
-        
-    // }
-
-    //id='"+myObj.data[i].id+"' onclick='getCurrentChannelId(this)'
-    
+{   
     emptyChannelBox()
     {
         document.getElementById("channelBox").innerHTML = '';

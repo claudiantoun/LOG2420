@@ -1,6 +1,6 @@
 let username;
-let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
-//let url = "ws://inter-host.ca:3000/chatservice?username=";
+//let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
+let url = "ws://inter-host.ca:3000/chatservice?username=";
 let connectionHandler;
 
 function createActionHandler()
@@ -26,31 +26,19 @@ function clickChannelIcon(icon)
     }
     else if(icon.className == "fas fa-minus")
     {
-        //dont forgot the console log
         connectionHandler.leaveChannel(icon.id);
-        // let generalId = document.getElementById("generalChannel").childNodes[0].id;
-        // console.log(generalId);
-        // connectionHandler.changeCurrentChannel(generalId);
     }
 }
 
-//when going from minus to plus active group name gotta be general and the current chat needs to be general as well!!
 function getCurrentChannelId(currentChannelBox)
 {
     channel = currentChannelBox.childNodes[0];
     activeGroup = currentChannelBox.childNodes[1].innerText;
     if(channel.className == "fas fa-minus" || channel.className == "fas fa-star")
     {
-        //dont forgot the console log
-        console.log(channel.id);
         document.getElementById("groupChat").innerHTML = "";
         document.getElementById("activeChannel").innerText = activeGroup;
         connectionHandler.changeCurrentChannel(channel.id);
-    }
-    else
-    {
-        let generalId = document.getElementById("generalChannel").childNodes[0].id;
-        connectionHandler.changeCurrentChannel(generalId);
     }
 }
 
@@ -90,4 +78,15 @@ function getChannelName()
 {
     let userEntry = prompt("Veuillez entrer le nom du nouveau groupe:", "");
     connectionHandler.createChannel(userEntry);
+}
+
+//idkk
+function clickOnInputBox()
+{
+    // if(document.getElementById("fname").clicked == true)
+    // {
+    //     connectionHandler.emptyNotificationIcon();
+    // }
+    var element = document.getElementById('fname'); // grab a reference to your element
+    element.addEventListener('click', connectionHandler.emptyNotificationIcon());
 }

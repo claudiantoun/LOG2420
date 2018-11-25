@@ -156,10 +156,6 @@
         color: black;
         position: relative;
         top: 35px;
-        /* white-space: nowrap;  */
-        width: 50px !important; 
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
     .button
     {
@@ -293,4 +289,15 @@
         padding-left: 10px;
         padding-top: 10px;
         font-weight: bold;
+    }
+    .icons .badge 
+    {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        padding: 3px 6px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        font-size: .6em;
     }

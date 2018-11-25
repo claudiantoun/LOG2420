@@ -5,8 +5,8 @@ class ConnectionHandler
         this.websocket = new WebSocket(url+username);
         this.arrayOfChannels = new Array();
         this.username = username;
-        this.generalChannel = "";
-        this.currentChannel = "";
+        this.generalChannel = null;
+        this.currentChannel = null;
     }
 
     actionHandler()
@@ -21,7 +21,7 @@ class ConnectionHandler
             switch(myObj.eventType)
             {
                 case "onMessage":
-                    messageObserver.displayMessage(myObj.data, myObj.sender, myObj.timestamp);
+                    messageObserver.displayMessage(myObj.data, myObj.sender, myObj.timestamp, myObj.channelId, copyConnectionHandler.currentChannel, copyConnectionHandler.arrayOfChannels);
                     break;
                 case "updateChannelsList":
                 //dont forget to delete the console.log
@@ -29,30 +29,38 @@ class ConnectionHandler
                     channelObserver.emptyChannelBox();
                     for(let i = 0; i < myObj.data.length; i++)
                     {
-                        copyConnectionHandler.arrayOfChannels[i] = myObj.data[i].id;
+                        copyConnectionHandler.arrayOfChannels[i] = myObj.data[i];
                     }
                     channelObserver.showChannels(myObj);
                     copyConnectionHandler.getGeneralChannelId();
                     break;
                 case "onError":
-                //im not sure what to do here IDKKKK
-                    alert("Nous avons attrapé une erreur. Nous allons relancer la page.");
+                    alert("Une erreur a été détectée. La page sera relancée.");
                     setTimeout(window.location.reload(), 5000);
                     break;
             }
         }
     }
 
-    // getOldMessages(iconId)
-    // {
-    //     let oldMessage = new Message("onGetChannel", iconId, null, null, null);
-    //     this.websocket.send(JSON.stringify(oldMessage));
-    // }
+    //idkk
+    emptyNotificationIcon()
+    {
+        document.getElementById("notification").innerHTML = "";
+    }
 
     getGeneralChannelId()
     {
         this.generalChannel = document.getElementById("generalChannel").childNodes[0].id;
-        if(this.currentChannel == "")
+        for(let i = 0; i < this.arrayOfChannels.length; i++)
+        {
+            if(this.currentChannel == this.arrayOfChannels[i].id && this.arrayOfChannels[i].joinStatus == false)
+            {
+                this.currentChannel = this.generalChannel;
+                let activeGroup = document.getElementById("generalChannel").childNodes[1].innerText;
+                document.getElementById("activeChannel").innerText = activeGroup;
+            }
+        }
+        if(this.currentChannel == "" || this.currentChannel == null)
         {
             this.currentChannel = this.generalChannel;
         }
@@ -63,15 +71,15 @@ class ConnectionHandler
         this.currentChannel = channelId;
     }
 
-    //CurrentChannel get it in the array (iterate through the array) and see if the joinStatus is true
     createMessage()
     {
-        //dont forgot the console log
-        console.log(this.currentChannel);
         let userEntryMessage = document.getElementById("fname").value;
-        let message = new Message("onMessage", this.currentChannel, userEntryMessage, null, null);
-        this.websocket.send(JSON.stringify(message));
-        document.getElementById("fname").value = "";
+        if(userEntryMessage != null || userEntryMessage != "")
+        {
+            let message = new Message("onMessage", this.currentChannel, userEntryMessage, null, null);
+            this.websocket.send(JSON.stringify(message));
+            document.getElementById("fname").value = "";
+        }
     }
 
     createChannel(channelName)
