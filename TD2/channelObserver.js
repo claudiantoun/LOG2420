@@ -1,10 +1,24 @@
+/**
+* Titre: Labo 2 - channelObserver.js
+* Date: 25 novembre 2018
+* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
+* Desciption: Ce code permet de manipuler la boîte de canaux du serveur.
+*/
+
 class ChannelObserver
 {   
+    /**
+    * Vider la boîte de canaux
+    */
     emptyChannelBox()
     {
         document.getElementById("channelBox").innerHTML = '';
     }
 
+    /**
+    * Afficher les canaux.
+    * @param {AnyObject[]} myObj - La liste de canaux actuels (données). 
+    */
     showChannels(myObj)
     {
         for(let i = 0; i < myObj.data.length; i++)

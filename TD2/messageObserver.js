@@ -1,12 +1,32 @@
+/**
+* Titre: Labo 2 - messageObserver.js
+* Date: 25 novembre 2018
+* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
+* Desciption: Ce code permet de manipuler les messages envoyés.
+*/
+
 class MessageObserver
 {
+    /**
+   * Créer un nouveau message.
+   * @param {String} username - Le nom d'utilisateur. 
+   * @param {Integer} alertCount - Le nombre de notifications.
+   */
     constructor(username)
     {
         this.username = username;
         this.alertCount = 1;
     }
 
-    //les incrementations sont fucker
+    /**
+    * Afficher le message et les notifications.
+    * @param {AnyObject} data - Le contenu du message.
+    * @param {String} sender - Le nom de l'utilisateur qui envoie le message.
+    * @param {String} timestamp - L'horodatage du message envoyé. 
+    * @param {String} id - L'identificateur du message. 
+    * @param {String} currentChannel - L'identificateur du canal courant.
+    * @param {String} arrayOfChannels - La liste de canaux.
+    */
     displayMessage(data, sender, timestamp, id, currentChannel, arrayOfChannels)
     {   
         if(id == currentChannel && id != null && currentChannel != null)
@@ -44,7 +64,6 @@ class MessageObserver
         else if(id != currentChannel && id != null && currentChannel != null)
         {
             let notifications = document.createElement("span");
-            notifications.id = "notification";
             notifications.setAttribute("class", "badge");
 
             for(let i = 0; i < arrayOfChannels.length; i++)
@@ -53,7 +72,7 @@ class MessageObserver
                 {
                     if(this.alertCount <= 99)
                     {
-                        notifications.textContent = this.alertCount++;
+                        notifications.innerText = this.alertCount++;
                         document.getElementById("bell").appendChild(notifications);
                     }
                 }

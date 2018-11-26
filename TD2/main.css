@@ -1,3 +1,11 @@
+    /**
+	* Titre: Labo 2 - main.css
+ 	* Date: 25 novembre 2018
+ 	* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
+ 	* Desciption: Ce code permet de recréer PolyChat.
+	*/
+    
+    /* Cette classe détermine l'arrangement du grid qui contient le système de clavardage */
     .grid-container 
 	{
 		display: grid;
@@ -5,38 +13,51 @@
 		grid-template-rows: 100px repeat(2,35px) 30px 470px 65px 20px 5px;
         background-color: white;
 	}
-									
+    
+    /* Cette classe détermine le style initial des divs à l'intérieur du grid qui contient le système de clavardage */
 	.grid-container > div 
 	{
 		text-align: center;
         font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
 		font-size: 20px;
         color: white;
-	}
+    }
+    
+    /* Cette classe détermine le positionnement et la couleur de fond de la marge principale */
     .grid-margin
     {
         grid-area: auto/auto/span 8/ span 1;
         background-color: rgb(230, 230, 230);
     }
+
+    /* Cette classe détermine le positionnement et la couleur de fond de l'entête qui contient le logo */
 	.grid-header-left
     {
 		grid-area: auto/auto/span 1/ span 3;
         background-color: rgb(230, 230, 230);
     }
+
+    /* Cette classe détermine la couleur de fond de la partie droite de l'entête (par défaut) */
     .grid-header-right
     {
         background-color: rgb(230, 230, 230);
     }
+
+    /* Cette classe détermine le style de la partie droite de l'entête qui contient le profile de l'utilisateur */
     .grid-header-right-profile
     {
         background-color: rgb(230, 230, 230);
         padding-right: 10px;
     }
+
+    /* Cette classe détermine le positionnement et la couleur de fond de la partie droite de l'entête qui contient l'icône des options */
     .grid-header-right-icon-cog
     {
 		background-color: rgb(230, 230, 230);
 		grid-area: auto/auto/span 1/ span 2;
     }
+
+    /* Cette classe détermine le positionnement et le style de l'entête du groupe actif (en haut)*/
     .active-group-header-top
     {
 		grid-area: auto/auto/span 1/ span 3;
@@ -49,6 +70,8 @@
         float: left;
         clear: left;
     }
+
+    /* Cette classe détermine le positionnement et le style de l'entête du groupe actif (en bas) */
     .active-group-header-bottom
     {
 		grid-area: auto/auto/span 1/ span 3;
@@ -60,6 +83,8 @@
         float: left;
         clear: left;
     }
+
+    /* Cette classe détermine le positionnement et le style de l'entête de la liste des groupes (en haut) */
     .group-list-header-top
     {
     	grid-area: auto/auto/ span 1/span 7; 
@@ -70,15 +95,21 @@
         padding-top: 10px;
         
     }
+
+    /* Cette classe détermine la couleur de fond de l'entête la liste des groupes (icône "plus") */
     .group-list-header-icon-plus
     { 
    	 	background-color: rgb(74, 135, 133);
-	}
+    }
+    
+    /* Cette classe détermine la couleur de fond de l'entête la liste des groupes (icône "engrenage") */
 	.group-list-header-icon-cog
     { 
 		grid-area: auto/auto/ span 1/span 2; 
    	 	background-color: rgb(74, 135, 133);
-	}
+    }
+    
+    /* Cette classe détermine le positionnement et le style de l'entête de la liste des groupes (en bas) */
     .group-list-header-bottom
     {
     	grid-area: auto/auto/ span 1/span 4; 
@@ -87,25 +118,35 @@
      	padding-left: 5px;
     	padding-bottom: 5px;
     }
+
+    /* Cette classe détermine le positionnement et le style du corps de la liste des groupes */
     .group-list-body
     {
         overflow-y: auto;
         overflow-x: hidden;
         grid-area: auto/auto/span 1/ span 5;
     }
+
+    /* Cette classe détermine le positionnement du corps de la liste des groupes (à la fin) */
     .group-list-body-end
     {
 		grid-area: auto/auto/span 2/ span 5;
     }
+
+    /* Cette classe détermine le positionnement du corps de la liste des groupes (la marge)*/
     .group-list-body-margin
     {
 		grid-area: auto/auto/span 4/ span 1;
     }
+
+    /* Cette classe détermine le style de la zone d'envoi des messages */
     .send-message-area
     {
     	background-color: rgb(74, 135, 133);
         border-right: 1px solid rgba(226, 230, 233, 0.8);
     }
+
+    /* Cette classe détermine le positionnement et le style du corps de la zone de clavardage (zone principale) */
     .active-group-chat
     {
 		grid-area: auto/auto/span 1/ span 3;
@@ -113,15 +154,21 @@
         overflow-y: auto;
         overflow-x: hidden;
     }
+
+    /* Cette classe détermine le positionnement et le style du corps de la zone de clavardage (zone en haut) */
     .active-group-chat-top
     {
 		border-right: 1px solid rgba(226, 230, 233, 0.8);
 		grid-area: auto/auto/span 1/ span 3;
     }
+
+    /* Cette classe détermine le positionnement du corps de la liste des groupes (en haut) */
     .group-list-body-top
     {
 		grid-area: auto/auto/span 1/ span 5;
     }
+
+    /* Cette classe détermine le style de la zone de saisie du message. */
     input[type=text], select 
     {
 	    width: 220px;
@@ -133,17 +180,23 @@
 	    font-family: "Fira Sans","TrebuchetMS","HelveticaNeue","Arial",sans-serif;
 	    font-size: 16px;
         width: 350px;
-	}
+    }
+    
+    /* Cette classe détermine le positionnement du corps de la zone de clavardage (à la fin) */
     .active-group-chat-end
     {
 		 grid-area: auto/auto/span 1/ span 3;
    		 border-right: 1px solid rgba(226, 230, 233, 0.8);
     }
+
+    /* Cette classe détermine le positionnement et le style de la zone à la fin du grid */
     .grid-end
     {
         grid-area: auto/auto/ span 1/ span 10;
         background-color:  rgb(230, 230, 230);
     }
+
+    /* Cette classe détermine le positionnement du logo de PolyChat */
     .poly-logo
     {
         position: relative;
@@ -151,12 +204,16 @@
         left: -100px;
         top: 30px
     }
+
+    /* Cette classe détermine le positionnement et le style généraux des icônes */
     .icons
     {
         color: black;
         position: relative;
         top: 35px;
     }
+
+    /* Cette classe détermine le positionnement et le style généraux des boutons */
     .button
     {
         position: relative;
@@ -165,18 +222,26 @@
         background-color: rgb(74, 135, 133);
         border-color: rgb(74, 135, 133);
     }
+
+    /* Cette classe détermine la couleur du texte du bouton d'envoi de message */
     .button-text-style
     {
         color:white;
     }
+
+    /* Cette classe détermine la couleur du bouton "j'aime" */
     .like-button
     {
         color:white;
     }
+
+    /* Cette classe détermine la couleur de fond du bouton "j'aime" */
     .like-area
     {
 		background-color: rgb(74, 135, 133);
     }
+
+    /* Cette classe détermine le positionnement et le style des canaux (blanc) */
     .channels-style
     {
         color: rgb(50, 122, 183);
@@ -188,6 +253,8 @@
         width: 315px;
         height: 40px;
     }
+
+    /* Cette classe détermine le positionnement et le style des canaux (gris) */
     .channels-style-dark-grey
     {
         color: rgb(50, 122, 183);
@@ -199,10 +266,14 @@
         width: 315px;
         height: 40px;
     }
+
+    /* Cette classe détermine l'espacement des canaux */
     .channel-icon-spacing
     {
         padding-left: 20px;
     }
+
+    /* Cette classe détermine le positionnement et le style des messages envoyés */
     .message-sent
     {
         background-color: rgb(120, 200, 200);
@@ -219,6 +290,8 @@
         max-width: 230px;
         height: auto;
     }
+
+    /* Cette classe détermine le positionnement et le style des messages reçus */
     .message-recieved
     {
         background-color: rgba(226, 230, 233, 0.8);
@@ -235,12 +308,16 @@
         font-size: 15px;
         padding-left: 10px;
     }
+
+    /* Cette classe détermine le positionnement et le style du nom d'utilisateur */
     .username-style
     {
         color: green;
         font-size: 12px;
         left: -50px;
     }
+
+    /* Cette classe détermine le positionnement et le style de l'horodatage des messages envoyés */
     .message-sent-timestamp
     {
         background-color: white;
@@ -257,6 +334,8 @@
         max-width: 230px;
         height: 20px;
     }
+
+    /* Cette classe détermine le positionnement et le style de l'horodatage des messages reçus */
     .message-recieved-timestamp
     {
         background-color: white;
@@ -273,6 +352,8 @@
         padding-left: 10px;
         padding-top: 10px;
     }
+
+    /* Cette classe détermine le positionnement et le style du nom d'utilisateur associé aux messages reçus */
     .message-recieved-username
     {
         background-color: white;
@@ -290,6 +371,8 @@
         padding-top: 10px;
         font-weight: bold;
     }
+
+    /* Cette classe détermine le positionnement et le style du badge de notifications */
     .icons .badge 
     {
         position: absolute;

@@ -1,8 +1,17 @@
+/**
+* Titre: Labo 2 - main.js
+* Date: 25 novembre 2018
+* Auteurs: Claudia Antoun (1920363) et Jeffrey Salloum (1902655)
+* Desciption: Ce code permet de manipuler la connection au serveur et d'int�ragir avec l'interface de PolyChat.
+*/
+
 let username;
-//let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
-let url = "ws://inter-host.ca:3000/chatservice?username=";
+let url = "ws://log2420-nginx.info.polymtl.ca/chatservice?username="; 
 let connectionHandler;
 
+/**
+* Créer le manipulateur d'action envoyé par le WebSocket.
+*/
 function createActionHandler()
 {
     document.getElementById("fname").focus();
@@ -18,6 +27,10 @@ function createActionHandler()
     enterToSendMessage();  
 }
 
+/**
+* Quitter ou joindre un canal à partir de son icône.
+* @param {AnyObject} icon - L'icône du canal.
+*/
 function clickChannelIcon(icon)
 {
     if(icon.className == "fas fa-plus")
@@ -30,6 +43,10 @@ function clickChannelIcon(icon)
     }
 }
 
+/**
+* Identifier le canal actuel.
+* @param {AnyObject} currentChannelBox - La boîte du canal actuel.
+*/
 function getCurrentChannelId(currentChannelBox)
 {
     channel = currentChannelBox.childNodes[0];
@@ -42,6 +59,10 @@ function getCurrentChannelId(currentChannelBox)
     }
 }
 
+/**
+* Retourner le nom d'utilisateur à entrer.
+* @returns {String} userEntry - Le nom d'utilisateur entré.
+*/
 function getUsername()
 {
     let userEntry;
@@ -53,6 +74,9 @@ function getUsername()
     return userEntry;
 }
 
+/**
+* Lier la touche "Enter" à l'envoi d'un message. 
+*/
 function enterToSendMessage()
 {
     document.getElementById("fname").onkeydown = function(event)
@@ -64,29 +88,36 @@ function enterToSendMessage()
     }
 }
 
+/**
+* Lier le bouton d'envoi à l'envoi d'un message. 
+*/
 function clickToSendMessage()
 {
     connectionHandler.createMessage();
 }
 
+/**
+* Lier le bouton d'ajout de canal (symbole "plus") à l'ajout d'un canal. 
+*/
 function clickToAddChannel()
 {
     getChannelName();
 }
 
+/**
+* Ajouter un canal à partir de son nom (entré par l'utilisateur).
+*/
 function getChannelName()
 {
     let userEntry = prompt("Veuillez entrer le nom du nouveau groupe:", "");
     connectionHandler.createChannel(userEntry);
 }
 
-//idkk
+/**
+* Vider l'indice de notification en appuyant sur la boîte de saisie de texte.
+*/
 function clickOnInputBox()
 {
-    // if(document.getElementById("fname").clicked == true)
-    // {
-    //     connectionHandler.emptyNotificationIcon();
-    // }
-    var element = document.getElementById('fname'); // grab a reference to your element
-    element.addEventListener('click', connectionHandler.emptyNotificationIcon());
+    let element = document.getElementById("fname");
+    element.addEventListener("click", connectionHandler.emptyNotificationIcon());
 }
